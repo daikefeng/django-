@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center logo my-4">
+            <a href="{% url 'home' %}">Django Boards</a>
+        </h1>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">注册</h3>
+                        <form action="" method="post" novalidate>
+                            {% csrf_token %}
+                            {% include 'includes/form.html' %}
+                            <button type="submit" class="btn btn-primary">注册</button>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted text-center">
+                        已注册？<a href="{% url 'login' %}">登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
